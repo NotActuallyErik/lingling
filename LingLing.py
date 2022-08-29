@@ -10,7 +10,8 @@ bot = commands.Bot(command_prefix='::')
 
 @bot.event
 async def on_ready():
-    print('Logged in as: ', bot.user.name)
+    print('Logged in as: ',
+          bot.user.name)
     print(bot.user.id)
     print('------')
 
@@ -42,9 +43,10 @@ async def info(ctx):
     r = ""
     r += "*Never spend 6 minutes doing something by hand when you can spend 6 hours failing to automate it*.\n\n"
     r += "Förhoppningen med lingling är att erbjuda ett smidigt* sätt att få tag på" \
-         "allmän information rörande våra studier -- exempelvis scheman, tentastatistik eller uppdateringar på kurshemsidor." \
-         "Onödigt? Förmodligen. Kul? Definitivt.\n\n"
-    r += ""
+         " allmän information rörande våra studier -- exempelvis scheman, tentastatistik eller uppdateringar på kurshemsidor." \
+         "\nOnödigt? Förmodligen. Kul? Definitivt.\n\n"
+    r += "Koden skrivs i Python3.9 med discordpy och går att hitta här: \nhttps://github.com/NotActuallyErik/lingling.git." \
+
     await ctx.send(r)
 
 

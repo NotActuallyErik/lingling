@@ -3,12 +3,15 @@ import time as tt
 import re
 
 
-def http_fetch():
+def http_fetch() -> str:
+    """ Hämtar hela jävla timeeddit som en textfil för att det
+        inte går att göra på nått annat sätt """
+
     d = str(tt.localtime()[0]) + \
         str(tt.localtime()[1] // 10) + \
         str(tt.localtime()[1])[-1] + \
         str(tt.localtime()[2] // 10) + \
-        str(tt.localtime()[2] + 2)[-1]
+        str(tt.localtime()[2])[-1]
     d = str(
         "https://cloud.timeedit.net/liu/web/schema/ri.html?h=t&sid=3&p=" + d + '-' + d + "&objects=153405.205&ox=0&types=0&fe=0&dc=f")
 
@@ -19,6 +22,8 @@ def http_fetch():
 
 
 def parse_html(html):
+    """ """
+
     indx = html.find('<div id="texttable">') - 100
     indx_1 = indx + html[indx::].find("</div>")
     target = html[indx:indx_1]
